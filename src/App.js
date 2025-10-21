@@ -65,7 +65,7 @@ function App() {
         <button onClick={goToPreviousPage} disabled={currentPage === 1}>
           Previous
         </button>
-        <span style={{ margin: '0 15px' }}>{currentPage}</span> 
+         <span>{currentPage}</span> 
         <button onClick={goToNextPage} disabled={currentPage === totalPages}>
           Next
         </button>
