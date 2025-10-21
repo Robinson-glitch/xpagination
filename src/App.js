@@ -27,17 +27,17 @@ function App() {
   const startIndex = (currentPage - 1) * PAGE_SIZE;
   const currentEmployees = employees.slice(startIndex, startIndex + PAGE_SIZE);
 
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
+  // const goToNextPage = () => {
+  //   if (currentPage < totalPages) {
+  //     setCurrentPage(currentPage + 1);
+  //   }
+  // };
 
-  const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  // const goToPreviousPage = () => {
+  //   if (currentPage > 1) {
+  //     setCurrentPage(currentPage - 1);
+  //   }
+  // };
 
   return (
     <div className="App">
@@ -62,11 +62,17 @@ function App() {
       </table>
 
       <div style={{ marginTop: '20px' }}>
-        <button type="button" onClick={goToPreviousPage} disabled={currentPage === 1}>
+        <button type="button" onClick={()=>{
+         
+     if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+    
+        }} disabled={currentPage === 1}>
           Previous
         </button>
          <span>{currentPage}</span> 
-        <button type="button" onClick={goToNextPage} disabled={currentPage === totalPages}>
+        <button type="button" onClick={()=>{
+          if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+        }} disabled={currentPage === totalPages}>
           Next
         </button>
       </div>
