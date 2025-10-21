@@ -61,7 +61,7 @@ function App() {
         </tbody>
       </table>
 
-      <div style={{ marginTop: '20px' }}>
+      {/* <div style={{ marginTop: '20px' }}> */}
         <button type="button" onClick={()=>{
          
      if (currentPage > 1) setCurrentPage((prev) => prev - 1);
@@ -75,7 +75,7 @@ function App() {
         }} disabled={currentPage === totalPages}>
           Next
         </button>
-      </div>
+      {/* </div> */}
     </div>
   );
 }
