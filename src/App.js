@@ -61,15 +61,15 @@ function App() {
         </tbody>
       </table>
 
-      {/* <div style={{ marginTop: '20px' }}> */}
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+       <div style={{ marginTop: '20px' }}> 
+          <button onClick={goToPreviousPage} disabled={currentPage === 1}>
           Previous
         </button>
-        <span>{currentPage}</span>
+        <p>{currentPage}</p>
         <button onClick={goToNextPage} disabled={currentPage === totalPages}>
           Next
         </button>
-      {/* </div> */}
+       </div> 
     </div>
   );
 }
