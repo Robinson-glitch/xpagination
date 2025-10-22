@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Employee Data</h1>
+      <h1>Employee Data</h1>szx
       <table border="1" cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
@@ -61,11 +61,11 @@ function App() {
         </tbody>
       </table>
 
-      <div style={{ marginTop: '20px' }}>
+      <div style={{ marginTop: '20px' ,display:"flex",justifyContent:"center"}}>
         <button onClick={goToPreviousPage}>
           Previous
         </button>
-        <h1>{currentPage}</h1>
+        <div style={{margin:'10px'}}><h1>{currentPage}</h1></div>
         <button onClick={goToNextPage}>
           Next
         </button>
