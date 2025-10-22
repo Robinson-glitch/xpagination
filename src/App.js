@@ -65,8 +65,7 @@ function App() {
         <button onClick={goToPreviousPage}>
           Previous
         </button>
-        <div>{currentPage}</div>
-      
+        <span>{currentPage}</span>
         <button onClick={goToNextPage}>
           Next
         </button>
