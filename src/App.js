@@ -65,8 +65,8 @@ function App() {
         <button onClick={goToPreviousPage}>
           Previous
         </button>
-        {/* <div style={{margin:'10px'}}>{currentPage}</div> */}
-        {currentPage}
+        <div>{currentPage}</div>
+      
         <button onClick={goToNextPage}>
           Next
         </button>
