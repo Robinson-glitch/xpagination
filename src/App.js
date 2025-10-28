@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useMemo } from 'react';
 import './App.css';
+
 
 const API_URL = 'https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json';
 const PAGE_SIZE = 10;
@@ -23,9 +24,11 @@ function App() {
       });
   }, []);
 
-  const totalPages = Math.ceil(employees.length / PAGE_SIZE);
+const totalPages = useMemo(() => Math.ceil(employees.length / PAGE_SIZE), [employees]);
+const currentEmployees = useMemo(() => {
   const startIndex = (currentPage - 1) * PAGE_SIZE;
-  const currentEmployees = employees.slice(startIndex, startIndex + PAGE_SIZE);
+  return employees.slice(startIndex, startIndex + PAGE_SIZE);
+}, [employees, currentPage]);
 
   const goToNextPage = () => {
     if (currentPage < totalPages) {
