@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Employee Data</h1>szx
+      <h1>Employee Data</h1>
       <table border="1" cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
