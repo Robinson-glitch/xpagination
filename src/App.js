@@ -3,7 +3,7 @@ import './App.css';
 
 
 const API_URL = 'https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json';
-const PAGE_SIZE = 10;
+const rowsPerPage = 10;
 
 function App() {
   const [employees, setEmployees] = useState([]);
@@ -24,11 +24,10 @@ function App() {
       });
   }, []);
 
-const totalPages = useMemo(() => Math.ceil(employees.length / PAGE_SIZE), [employees]);
-const currentEmployees = useMemo(() => {
-  const startIndex = (currentPage - 1) * PAGE_SIZE;
-  return employees.slice(startIndex, startIndex + PAGE_SIZE);
-}, [employees, currentPage]);
+  const indexOfLast = currentPage * rowsPerPage;
+  const indexOfFirst = indexOfLast - rowsPerPage;
+  const currentData = employees.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(employees.length / rowsPerPage);
 
   const goToNextPage = () => {
     if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
@@ -50,7 +49,7 @@ const currentEmployees = useMemo(() => {
           </tr>
         </thead>
         <tbody>
-          {currentEmployees.map((employee) => (
+          {currentData.map((employee) => (
             <tr key={employee.id}>
               <td>{employee.name}</td>
               <td>{employee.email}</td>
