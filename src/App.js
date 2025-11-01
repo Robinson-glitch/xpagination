@@ -30,16 +30,25 @@ function App() {
   const totalPages = Math.ceil(employees.length / rowsPerPage);
 
   const goToNextPage = () => {
-    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
   const goToPreviousPage = () => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+      if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
 
   return (
     <div className="App">
       <h1>Employee Data</h1>
+      <div className="pagination">
+        <button onClick={goToPreviousPage}>
+          Previous
+        </button>
+        <span>{currentPage}</span>
+        <button onClick={goToNextPage}>
+          Next
+        </button>
+      </div>
       <table border="1" cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
@@ -59,15 +68,7 @@ function App() {
         </tbody>
       </table>
 
-      <div className="pagination">
-        <button onClick={goToPreviousPage}>
-          Previous
-        </button>
-        <span>{currentPage}</span>
-        <button onClick={goToNextPage}>
-          Next
-        </button>
-      </div>
+      
     </div>
   );
 }
