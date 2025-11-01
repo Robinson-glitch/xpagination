@@ -60,7 +60,7 @@ const currentEmployees = useMemo(() => {
         </tbody>
       </table>
 
-      <div style={{ marginTop: '20px' ,display:"flex",justifyContent:"center"}}>
+      <div className="pagination">
         <button onClick={goToPreviousPage}>
           Previous
         </button>
